@@ -1,0 +1,83 @@
+$black: #000;
+$gray: rgba(151, 151, 151, 0.33);
+$skyBlue: #1791ff;
+$gray-black: #1a1a1a;
+$creamy: #fafafa;
+$grayWhite: #bfbfbf;
+$transparentCream:  rgba(246, 246, 255, 0.5);
+
+.datatable{
+    width: 100%;    
+    text-align: center;
+    thead{
+        background: $creamy;
+        th{
+            font-family: 'ProximaNovaSemiBold';
+            font-size: 16px;
+            color: $gray-black;
+            border-bottom: 0.5px $gray solid;
+            padding: 14px;
+            text-transform: uppercase;
+            &.sort{
+                cursor: pointer;
+                user-select: none;
+                &.dsc{
+                    .sort-by{
+                        &:after {
+                            border-top-color: $skyBlue;
+                        }
+                    }
+                }
+                &.asc{
+                    .sort-by{
+                        &:before {
+                            border-bottom-color: $skyBlue;
+                        }
+                    }
+                }
+            }
+            .sort-by{
+                display: inline-block;
+                position: relative;
+                height: 8px;
+                width: 8px;
+                margin-left: 7px;
+                &:before,
+                &:after {
+                    border: 4px solid transparent;
+                    content: "";
+                    display: block;
+                    height: 0;
+                    right: 0;
+                    top: 50%;
+                    position: absolute;
+                    width: 0;
+                }
+                &:before {
+                    border-bottom-color:$grayWhite;
+                    margin-top: -9px;
+                }
+                &:after {
+                    border-top-color: $grayWhite;
+                    margin-top: 1px;
+                }
+            }
+            
+        }
+    }
+
+    tbody{
+    
+    td{
+        border-bottom: 1px $gray solid;
+        padding: 14px;
+    }
+
+    tr {
+        &:hover{
+            background: $transparentCream;
+            color: $black;
+        }
+    }
+}
+}
