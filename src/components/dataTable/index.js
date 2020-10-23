@@ -1,4 +1,4 @@
-import React, {useState} from 'react'
+import React, {useState, useEffect} from 'react'
 import PropTypes from 'prop-types';
 import moment from 'moment'
 
@@ -13,6 +13,10 @@ const DataTable = ({columns = [], data = [], recordsPerPage = 10, pagination = t
     const [sortData, setData] = useState(currentData());
     const [sortDirection, setDirection] = useState('asc');
     const [sortIndex, setSortIndex] = useState();
+
+    useEffect(() => {
+      setData(currentData())
+    }, [currentPage]);
 
     const cellType = (row, col) => {
         switch(col.type) {
@@ -48,7 +52,6 @@ const DataTable = ({columns = [], data = [], recordsPerPage = 10, pagination = t
         default:
             jump(type)
       }
-      setData(currentData);
     }
 
     return (
